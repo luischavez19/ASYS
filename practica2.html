@@ -1,0 +1,213 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Practica 2</title><meta name="generator" content="MATLAB 9.7"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2020-02-28"><meta name="DC.source" content="practica2.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Practica 2</h1><!--introduction--><p>SE&Ntilde;ALES EN TIEMPO DISCRETO</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">INTEGRANTES</a></li><li><a href="#2">OBJETIVOS</a></li><li><a href="#3">ENTREGABLES</a></li><li><a href="#4">For the signal shown in Fig. P3.1-1b, sketch the following signals:</a></li><li><a href="#5">SE&Ntilde;AL ORIGINAL</a></li><li><a href="#6">PUNTO A</a></li><li><a href="#7">PUNTO B</a></li><li><a href="#8">PUNTO C</a></li><li><a href="#9">PUNTO D</a></li><li><a href="#10">PUNTO E</a></li><li><a href="#11">PUNTO F</a></li><li><a href="#12">PUNTO2</a></li><li><a href="#13">ESCALON UNITARIO POR UNA CONSTANTE n*U(T)</a></li><li><a href="#14">SENO sin((pi*t)/4)</a></li><li><a href="#15">COSENO cos((pi*t)/4)</a></li></ul></div><h2 id="1">INTEGRANTES</h2><div><ul><li>Chavez Andrade Luis Daniel</li><li>Alvarado Angeles  Francisco Javier</li><li>Jose Carlos martinez cruz</li></ul></div><h2 id="2">OBJETIVOS</h2><div><ol><li>Manipulaci&oacute;n b&aacute;sica de MATLAB</li><li>Gr&aacute;ficas de se&ntilde;ales reales y complejas discretas</li><li>Transformaci&oacute;n de se&ntilde;ales discretas (escalamientos y traslaciones)</li></ol></div><h2 id="3">ENTREGABLES</h2><div><ul><li>Resuelva el problema 3.2.3 de Lathi, tenga cuidado en los escalamientos horizontales</li><li>Construya una funci&oacute;n que gr&aacute;fique funciones de <img src="practica2_eq06357096058172504561.png" alt="$f:Z\rightarrow R$"> en el formato de su elecci&oacute;n. Con ayuda de esta funci&oacute;n resuelva el problema 3.3.7 de Lathi, el rango de la varible se deja a criterio</li><li>Construya una app</li></ul></div><h2 id="4">For the signal shown in Fig. P3.1-1b, sketch the following signals:</h2><div><ul><li>a. x[-n]</li><li>b. x[n + 6]</li><li>c. x[n - 6]</li><li>d. x[3n]</li><li>e. x[n/3]</li><li>f. x[3 - n]</li></ul></div><h2 id="5">SE&Ntilde;AL ORIGINAL</h2><pre class="codeinput">x=@(t) (t).*((t&lt;=3)&amp;(t&gt;=0));
+t=-6:.5:12;
+c(t,x(t))
+</pre><img vspace="5" hspace="5" src="practica2_01.png" alt=""> <h2 id="6">PUNTO A</h2><div><ul><li>a. x[-n]</li></ul></div><pre class="codeinput"> c(t,x(-t))
+</pre><img vspace="5" hspace="5" src="practica2_02.png" alt=""> <h2 id="7">PUNTO B</h2><div><ul><li>b. x[n + 6]</li></ul></div><pre class="codeinput">c(t,x(t-6))
+</pre><img vspace="5" hspace="5" src="practica2_03.png" alt=""> <h2 id="8">PUNTO C</h2><div><ul><li>c. x[n - 6]</li></ul></div><pre class="codeinput">c(t,x(t+6))
+</pre><img vspace="5" hspace="5" src="practica2_04.png" alt=""> <h2 id="9">PUNTO D</h2><div><ul><li>d. x[3n]</li></ul></div><pre class="codeinput"> c(t,x(3*t))
+</pre><img vspace="5" hspace="5" src="practica2_05.png" alt=""> <img vspace="5" hspace="5" src="practica2_06.png" alt=""> <h2 id="10">PUNTO E</h2><div><ul><li>e. x[n/3]</li></ul></div><pre class="codeinput"> c(t,x(t/3))
+</pre><img vspace="5" hspace="5" src="practica2_07.png" alt=""> <h2 id="11">PUNTO F</h2><div><ul><li>f. x[3 - n]</li></ul></div><pre class="codeinput">  c(t,x(3-t))
+</pre><img vspace="5" hspace="5" src="practica2_08.png" alt=""> <h2 id="12">PUNTO2</h2><p>PARTE PAR E IMPAR DE SE&Ntilde;ALES DISCRETAS * Escalon unitario u(t)</p><pre class="codeinput">  x=@(t) ((t&lt;=100)&amp;(t&gt;=0));
+ t=-5:10;
+ c(t,x(t))
+ <span class="comment">% PARTE PAR</span>
+ f=(x(t)+x(-t))/2;
+ c(t,f)
+ <span class="comment">% PARTE IMPAR</span>
+ g=(x(t)-x(-t))/2;
+ c(t,g)
+</pre><img vspace="5" hspace="5" src="practica2_09.png" alt=""> <img vspace="5" hspace="5" src="practica2_10.png" alt=""> <img vspace="5" hspace="5" src="practica2_11.png" alt=""> <h2 id="13">ESCALON UNITARIO POR UNA CONSTANTE n*U(T)</h2><pre class="codeinput">   x=@(t) ((t&lt;=10)&amp;(t&gt;=0));
+   t=-5:10;
+   c(t,x(t))
+    <span class="comment">% PARTE PAR</span>
+ f=(x(t)+x(-t))/2;
+ c(t,f)
+ <span class="comment">% PARTE IMPAR</span>
+ g=(x(t)-x(-t))/2;
+ c(t,g)
+</pre><img vspace="5" hspace="5" src="practica2_12.png" alt=""> <img vspace="5" hspace="5" src="practica2_13.png" alt=""> <img vspace="5" hspace="5" src="practica2_14.png" alt=""> <h2 id="14">SENO sin((pi*t)/4)</h2><pre class="codeinput">   x=@(t) sin((pi*t)/4).*((t&lt;=10)&amp;(t&gt;=0));
+  t=0:.5:10;
+  c(t,x(t))
+  <span class="comment">% PARTE PAR</span>
+ f=(x(t)+x(-t))/2;
+ c(t,f)
+ <span class="comment">% PARTE IMPAR</span>
+ g=(x(t)-x(-t))/2;
+ c(t,g)
+</pre><img vspace="5" hspace="5" src="practica2_15.png" alt=""> <img vspace="5" hspace="5" src="practica2_16.png" alt=""> <img vspace="5" hspace="5" src="practica2_17.png" alt=""> <h2 id="15">COSENO cos((pi*t)/4)</h2><pre class="codeinput">   x=@(t) cos((pi*t)/4).*((t&lt;=10)&amp;(t&gt;=0));
+  t=0:.5:10;
+  c(t,x(t))
+  <span class="comment">% PARTE PAR</span>
+ f=(x(t)+x(-t))/2;
+ c(t,f)
+ <span class="comment">% PARTE IMPAR</span>
+ g=(x(t)-x(-t))/2;
+ c(t,g)
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2019b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Practica 2
+% SEÑALES EN TIEMPO DISCRETO
+%% INTEGRANTES
+% * Chavez Andrade Luis Daniel
+% * Alvarado Angeles  Francisco Javier
+% * Jose Carlos martinez cruz
+%% OBJETIVOS
+% # Manipulación básica de MATLAB
+% # Gráficas de señales reales y complejas discretas
+% # Transformación de señales discretas (escalamientos y traslaciones)
+%% ENTREGABLES
+% * Resuelva el problema 3.2.3 de Lathi, tenga cuidado en los escalamientos horizontales
+% * Construya una función que gráfique funciones de $f:Z\rightarrow R$ en el formato de su elección.
+% Con ayuda de esta función resuelva el problema 3.3.7 de Lathi,
+% el rango de la varible se deja a criterio
+% * Construya una app
+%% For the signal shown in Fig. P3.1-1b, sketch the following signals:
+% * a. x[-n]
+% * b. x[n + 6]
+% * c. x[n - 6]
+% * d. x[3n]
+% * e. x[n/3]
+% * f. x[3 - n]
+%% SEÑAL ORIGINAL
+
+x=@(t) (t).*((t<=3)&(t>=0)); 
+t=-6:.5:12; 
+c(t,x(t))
+ %% PUNTO A
+% * a. x[-n]
+ c(t,x(-t))
+  %% PUNTO B
+  % * b. x[n + 6]
+c(t,x(t-6))
+ %% PUNTO C
+ % * c. x[n - 6]
+c(t,x(t+6))
+ %% PUNTO D
+ % * d. x[3n]
+ c(t,x(3*t))
+  %% PUNTO E
+  % * e. x[n/3]
+ c(t,x(t/3))
+  %% PUNTO F
+  % * f. x[3 - n]
+  c(t,x(3-t))
+  
+  %% PUNTO2
+  % PARTE PAR E IMPAR DE SEÑALES DISCRETAS
+  % * Escalon unitario u(t)
+  x=@(t) ((t<=100)&(t>=0)); 
+ t=-5:10; 
+ c(t,x(t))
+ % PARTE PAR
+ f=(x(t)+x(-t))/2;
+ c(t,f)
+ % PARTE IMPAR
+ g=(x(t)-x(-t))/2;
+ c(t,g) 
+ %% ESCALON UNITARIO POR UNA CONSTANTE n*U(T)
+   x=@(t) ((t<=10)&(t>=0)); 
+   t=-5:10;
+   c(t,x(t))
+    % PARTE PAR
+ f=(x(t)+x(-t))/2;
+ c(t,f)
+ % PARTE IMPAR
+ g=(x(t)-x(-t))/2;
+ c(t,g)
+ 
+ %% SENO sin((pi*t)/4)
+   x=@(t) sin((pi*t)/4).*((t<=10)&(t>=0)); 
+  t=0:.5:10; 
+  c(t,x(t))
+  % PARTE PAR
+ f=(x(t)+x(-t))/2;
+ c(t,f)
+ % PARTE IMPAR
+ g=(x(t)-x(-t))/2;
+ c(t,g)
+ %% COSENO cos((pi*t)/4)
+   x=@(t) cos((pi*t)/4).*((t<=10)&(t>=0)); 
+  t=0:.5:10; 
+  c(t,x(t))
+  % PARTE PAR
+ f=(x(t)+x(-t))/2;
+ c(t,f)
+ % PARTE IMPAR
+ g=(x(t)-x(-t))/2; 
+ c(t,g)
+ 
+  
+  
+
+
+
+##### SOURCE END #####
+--></body></html>
