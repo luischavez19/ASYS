@@ -1,0 +1,224 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Practica 4 Convolucion y correlacion de se&ntilde;ales</title><meta name="generator" content="MATLAB 9.7"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2020-04-03"><meta name="DC.source" content="worac3.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Practica 4 Convolucion y correlacion de se&ntilde;ales</h1><!--introduction--><p>SE&Ntilde;ALES EN TIEMPO DISCRETO</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">INTEGRANTES</a></li><li><a href="#2">OBJETIVOS</a></li><li><a href="#3">ENTREGABLES</a></li><li><a href="#4">INTEGRACION NUMERICA</a></li><li><a href="#5">NEWTON-COTES</a></li><li><a href="#6">METODO DEL TRAPECIO</a></li><li><a href="#7">EJEMPLO HECHO A MANO</a></li><li><a href="#9">EJERCICIO 1 DE PR04</a></li><li><a href="#10">EJERCICIO E DE PR05</a></li><li><a href="#11">EJERCICIO 3.1.1</a></li><li><a href="#12">REALICE LA CONVOLUCION OCUPANDO COMANDO CONV</a></li></ul></div><h2 id="1">INTEGRANTES</h2><div><ul><li>Chavez Andrade Luis Daniel</li></ul></div><h2 id="2">OBJETIVOS</h2><div><ul><li>Conocer m&eacute;todos b&aacute;sicos de integraci&oacute;n num&eacute;rica</li><li>Manipulaci&oacute;n de instrucciones en MATLAB</li><li>Simular convoluciones y correlaciones de se&ntilde;ales continuas</li><li>Simular convoluciones y correlaciones de se&ntilde;ales discretas</li></ul></div><h2 id="3">ENTREGABLES</h2><div><ol><li>Para el PR04 reporte la grafica de la simulaci&oacute;n n&uacute;merica de la convoluci&oacute;n y compare con el resultado an&aacute;litico que obtuvo para el problema 1, esto es, su pr&aacute;ctica tendr&aacute; que incluir una llamada a la funci&oacute;nn <i>convconm</i> y posteriormente se tendr&aacute; que mostrar (mediante el Publish) la gr&aacute;fica tanto de las se&ntilde;ales involucradas como el resultado de la convoluci&oacute;n, y en esta &uacute;ltima gr&aacute;ficara su resultado analitico, se tendr&aacute; que incluir el resultado analitico.</li><li>Para el PR05 reporte la grafica de la simulaci&oacute;n n&uacute;merica de la correalci&oacute;n y compare con el resultado an&aacute;litico que obtuvo para el problema e), esto es, su pr&aacute;ctica tendr&aacute; que incluir una llamada a la funci&oacute;nn <i>convconm</i> y posteriormente se tendr&aacute; que mostrar (mediante el Publish) la gr&aacute;fica tanto de las se&ntilde;ales involucradas como el resultado de su correlaci&oacute;n, y en esta &uacute;ltima graficara su resultado analitico, se tendr&aacute; que incluir el resultado analitico.</li><li>Realice la simuaci&oacute;n de la convoluci&oacute;n de las se&ntilde;ales (c) con (d) del problema 3.1.1</li><li>Realice la simuaci&oacute;n de la correlaci&oacute;n de las se&ntilde;ales (c) con (d) del problema 3.1.1</li><li>Realice la  la convoluci&oacute;n de las se&ntilde;ales (c) con (d) del problema 3.1.1 utilizando el comando <b>conv</b> de MATLAB, muestre el c&oacute;digo utilizado y gr&aacute;fique el resultado, sugerencia: Utilice las propiedades de traslaci&oacute;n de la convoluci&oacute;n.</li></ol></div><h2 id="4">INTEGRACION NUMERICA</h2><p>En an&aacute;lisis num&eacute;rico, la integraci&oacute;n num&eacute;rica constituye una amplia gama de algoritmos para calcular el valor num&eacute;rico de una integral definida y, por extensi&oacute;n, el t&eacute;rmino se usa a veces para describir algoritmos num&eacute;ricos para resolver ecuaciones diferenciales</p><h2 id="5">NEWTON-COTES</h2><p>En an&aacute;lisis num&eacute;rico las f&oacute;rmulas de Newton-Cotes (nombradas as&iacute; por Isaac Newton y Roger Cotes) son un grupo de f&oacute;rmulas de integraci&oacute;n num&eacute;rica de tipo interpolatorio, en las cuales se eval&uacute;a la funci&oacute;n en puntos equidistantes, para as&iacute; hallar un valor aproximado de la integral. Cuanto m&aacute;s intervalos se divida la funci&oacute;n m&aacute;s preciso ser&aacute; el resultado.</p><h2 id="6">METODO DEL TRAPECIO</h2><p>A este m&eacute;todo se le conoce con el nombre de la regla del trapecio compuesta. % Para aplicar este m&eacute;todo siga los siguientes pasos: Divida el intervalo [a, b] en subintervalos de igual medida. Aproxime en cada subintervalo la funci&oacute;n f(x) por una recta</p><h2 id="7">EJEMPLO HECHO A MANO</h2><p><img vspace="5" hspace="5" src="newton-cotes.png" alt=""> </p><h2 id="9">EJERCICIO 1 DE PR04</h2><p>Convolucion de las siguientes dos se&ntilde;ales Primera se&ntilde;al</p><pre class="codeinput">a=@(t) (exp(-t)).*((t&gt;=0)&amp;(t&lt;=1));
+t=-2:.01:2;
+figure
+plot(t,a(t))
+title({<span class="string">'grafica de e^-t '</span>});
+<span class="comment">% Segunda se&ntilde;al</span>
+b=@(t) ((-(-t).*((t&gt;=-1)&amp;(t&lt;0))) + ((t).*((t&gt;=0)&amp;(t&lt;=1))));
+figure
+plot(t,b(t))
+title({<span class="string">'grsfica de -t y t intervalo -1 a 1'</span>});
+<span class="comment">%convolucion</span>
+figure
+convconm(a,b)
+</pre><img vspace="5" hspace="5" src="worac3_01.png" alt=""> <img vspace="5" hspace="5" src="worac3_02.png" alt=""> <img vspace="5" hspace="5" src="worac3_03.png" alt=""> <h2 id="10">EJERCICIO E DE PR05</h2><p>realiza a autocorrelacion de x1(t) = u(t) ? 2u(t ? 3) + u(t ? 4) N</p><h2 id="11">EJERCICIO 3.1.1</h2><p>CONVOLUCION  Y CORRELACION DE LAS SE&Ntilde;ALES  C Y D</p><pre class="codeinput">x=@(t) ((-(-3*t).*((t&gt;=-3)&amp;(t&lt;0))) + ((3*t).*((t&gt;=0)&amp;(t&lt;=3))));
+t=-3.5:.08:3.5;
+figure
+plot(t,x(t))
+title({<span class="string">'se&ntilde;al c '</span>});
+<span class="comment">%SE&Ntilde;AL D</span>
+h=@(t) (((-2*t).*((t&gt;=-2)&amp;(t&lt;0))) + ((2*t).*((t&gt;=0)&amp;(t&lt;=2))));
+figure
+plot(t,h(t))
+title({<span class="string">'se&ntilde;al d'</span>});
+<span class="comment">%la se&ntilde;al al ser par e invertirla es lo mismo que la convolucion'</span>
+title({<span class="string">'correlacion'</span>});
+convconm1(x,h)
+</pre><img vspace="5" hspace="5" src="worac3_04.png" alt=""> <img vspace="5" hspace="5" src="worac3_05.png" alt=""> <img vspace="5" hspace="5" src="worac3_06.png" alt=""> <h2 id="12">REALICE LA CONVOLUCION OCUPANDO COMANDO CONV</h2><p>DE C Y D</p><pre class="codeinput"><span class="comment">%SE&Ntilde;AL C</span>
+
+x=@(t) ((-(-3*t).*((t&gt;=-3)&amp;(t&lt;0))) + ((3*t).*((t&gt;=0)&amp;(t&lt;=3))));
+figure
+plot(t,x(t))
+title({<span class="string">'se&ntilde;al c'</span>});
+
+<span class="comment">%SE&Ntilde;AL D</span>
+h=@(t) (((-2*t).*((t&gt;=-2)&amp;(t&lt;0))) + ((2*t).*((t&gt;=0)&amp;(t&lt;=2))));
+figure
+plot(t,h(t))
+title({<span class="string">'se&ntilde;al d'</span>});
+figure
+c=conv(x(t),h(t),<span class="string">'same'</span>);
+plot(t,c)
+title({<span class="string">'convolucion con comando conv'</span>});
+</pre><img vspace="5" hspace="5" src="worac3_07.png" alt=""> <img vspace="5" hspace="5" src="worac3_08.png" alt=""> <img vspace="5" hspace="5" src="worac3_09.png" alt=""> <p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2019b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Practica 4 Convolucion y correlacion de señales
+% SEÑALES EN TIEMPO DISCRETO
+%% INTEGRANTES
+% * Chavez Andrade Luis Daniel
+%% OBJETIVOS
+% * Conocer métodos básicos de integración numérica 
+% * Manipulación de instrucciones en MATLAB
+% * Simular convoluciones y correlaciones de señales continuas
+% * Simular convoluciones y correlaciones de señales discretas
+%% ENTREGABLES
+% # Para el PR04 reporte la grafica de la simulación númerica
+% de la convolución y compare con el resultado análitico que obtuvo para el problema 1, esto
+% es, su práctica tendrá que incluir una llamada a la funciónn
+% _convconm_ y posteriormente se tendrá que mostrar (mediante el
+% Publish) la gráfica tanto de las señales involucradas como el resultado de
+% la convolución, y en esta última gráficara su resultado analitico, se
+% tendrá que incluir el resultado analitico. 
+% # Para el PR05 reporte la grafica de la simulación númerica
+% de la correalción y compare con el resultado análitico que obtuvo para el problema e), esto
+% es, su práctica tendrá que incluir una llamada a la funciónn
+% _convconm_ y posteriormente se tendrá que mostrar (mediante el
+% Publish) la gráfica tanto de las señales involucradas como el resultado de
+% su correlación, y en esta última graficara su resultado analitico, se
+% tendrá que incluir el resultado analitico. 
+% # Realice la simuación de la convolución de las señales (c) con (d) del
+% problema 3.1.1 
+% # Realice la simuación de la correlación de las señales (c) con (d) del
+% problema 3.1.1
+% # Realice la  la convolución de las señales (c) con (d) del
+% problema 3.1.1 utilizando el comando *conv* de MATLAB, muestre el código
+% utilizado y gráfique el resultado, sugerencia: Utilice las propiedades de
+% traslación de la convolución. 
+%% INTEGRACION NUMERICA
+% En análisis numérico, la integración numérica constituye una amplia gama
+% de algoritmos para calcular el valor numérico de una integral definida y,
+% por extensión, el término se usa a veces para describir algoritmos numéricos
+% para resolver ecuaciones diferenciales
+
+%%  NEWTON-COTES
+% En análisis numérico las fórmulas de Newton-Cotes (nombradas así por Isaac
+% Newton y Roger Cotes) son un grupo de fórmulas de integración numérica de 
+% tipo interpolatorio, en las cuales se evalúa la función en puntos equidistantes,
+% para así hallar un valor aproximado de la integral. Cuanto más intervalos se
+% divida la función más preciso será el resultado.
+%% METODO DEL TRAPECIO
+% A este método se le conoce con el nombre de la regla del trapecio compuesta. %
+% Para aplicar este método siga los siguientes pasos: Divida el intervalo [a, b]
+% en subintervalos de igual medida. Aproxime en cada subintervalo la función f(x) por una recta
+%% EJEMPLO HECHO A MANO
+%%
+% 
+% <<newton-cotes.png>>
+% 
+
+%% EJERCICIO 1 DE PR04
+% Convolucion de las siguientes dos señales
+% Primera señal
+a=@(t) (exp(-t)).*((t>=0)&(t<=1)); 
+t=-2:.01:2;
+figure
+plot(t,a(t))
+title({'grafica de e^-t '});
+% Segunda señal
+b=@(t) ((-(-t).*((t>=-1)&(t<0))) + ((t).*((t>=0)&(t<=1)))); 
+figure
+plot(t,b(t))
+title({'grsfica de -t y t intervalo -1 a 1'});
+%convolucion
+figure
+convconm(a,b)
+%% EJERCICIO E DE PR05
+% realiza a autocorrelacion de
+% x1(t) = u(t) ? 2u(t ? 3) + u(t ? 4) N   
+
+%% EJERCICIO 3.1.1
+% CONVOLUCION  Y CORRELACION DE LAS SEÑALES  C Y D 
+x=@(t) ((-(-3*t).*((t>=-3)&(t<0))) + ((3*t).*((t>=0)&(t<=3))));
+t=-3.5:.08:3.5;
+figure
+plot(t,x(t))
+title({'señal c '});
+%SEÑAL D
+h=@(t) (((-2*t).*((t>=-2)&(t<0))) + ((2*t).*((t>=0)&(t<=2))));  
+figure
+plot(t,h(t))
+title({'señal d'});
+%la señal al ser par e invertirla es lo mismo que la convolucion'
+title({'correlacion'});
+convconm1(x,h)
+
+
+
+%% REALICE LA CONVOLUCION OCUPANDO COMANDO CONV
+% DE C Y D
+%SEÑAL C
+
+x=@(t) ((-(-3*t).*((t>=-3)&(t<0))) + ((3*t).*((t>=0)&(t<=3)))); 
+figure
+plot(t,x(t))
+title({'señal c'});
+
+%SEÑAL D
+h=@(t) (((-2*t).*((t>=-2)&(t<0))) + ((2*t).*((t>=0)&(t<=2)))); 
+figure
+plot(t,h(t))
+title({'señal d'});
+figure
+c=conv(x(t),h(t),'same'); 
+plot(t,c)
+title({'convolucion con comando conv'});
+##### SOURCE END #####
+--></body></html>
