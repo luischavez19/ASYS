@@ -1,0 +1,191 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>PRACTICA 5</title><meta name="generator" content="MATLAB 9.7"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2020-04-17"><meta name="DC.source" content="P05.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>PRACTICA 5</h1><!--introduction--><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">INTEGRANTES</a></li><li><a href="#2">OBJETIVOS</a></li><li><a href="#3">ENTREGABLES</a></li><li><a href="#4">EJERCICIO6.1</a></li><li><a href="#5">EJERICIO 6.2</a></li><li><a href="#6">EJERCICIO 6.4</a></li><li><a href="#7">EJERCICIO6.5</a></li><li><a href="#8">EJERCICIO6.7</a></li></ul></div><h2 id="1">INTEGRANTES</h2><div><ul><li>Chavez Andrade Luis Daniel</li></ul></div><h2 id="2">OBJETIVOS</h2><p>*Realizar gr&aacute;ficas de series de Fourier exponenciales y trigonom&eacute;tricas en tiempo continuo *Manipulaci&oacute;n de instrucciones en MATLAB *Calculo n&uacute;merico de los coeficientes de Fourier</p><h2 id="3">ENTREGABLES</h2><p>#Para cada problema debes de realizar</p><p>#Realizar el programa de la serie que se indica #Gr&aacute;fica de la serie de Fourier en un intervalo que muestre 5 repeticiones #Gr&aacute;fica de la se&ntilde;al y la serie de Fourier para 4 armonicos #Gr&aacute;fica del error #Gr&aacute;fica de la energ&iacute;a del error #Espectro de magnitud para 4 armonicos #Espectro de fase para 4 armonicos #Todo lo anterior para 15 armonicos</p><h2 id="4">EJERCICIO6.1</h2><pre class="codeinput">d0=0.504;
+dn=@(n) 0.504/(1+4*n*j);
+t0=0;
+tf=pi;
+f=@(t) exp(-t/2);
+armo=4;
+a=-7;
+b=7;
+
+sfc(t0,tf,dn,d0,f,armo,a,b)
+<span class="comment">% t0 el valor inicial para calcular la serie</span>
+<span class="comment">% tf el valor final donde calcular la serie</span>
+<span class="comment">% dn funci&oacute;n de la f&oacute;rmula de los dn</span>
+<span class="comment">% f funci&oacute;n original</span>
+<span class="comment">% armo n&uacute;mero de armonicos a utilizar en la gr&aacute;fica|</span>
+<span class="comment">% a, b intevalo para realizar la grafica de la serie</span>
+</pre><img vspace="5" hspace="5" src="P05_01.png" alt=""> <h2 id="5">EJERICIO 6.2</h2><pre class="codeinput">d0=0;
+dn=@(n) 0.27/(n*j);
+t0=(-pi/2);
+tf=(pi/2);
+armo=4;
+a=-2;
+b=2;
+f=@(t) ((6*t).*((t&gt;=-0.5)&amp;(t&lt;0.5)))+(6*(1-t).*((t&gt;=0.5)&amp;(t&lt;1.5)));
+t=-0.5:.01:1.5;
+sfc(t0,tf,dn,d0,f,armo,a,b)
+figure
+plot(t,f(t))
+</pre><img vspace="5" hspace="5" src="P05_02.png" alt=""> <img vspace="5" hspace="5" src="P05_03.png" alt=""> <h2 id="6">EJERCICIO 6.4</h2><pre class="codeinput">d0=0;
+dn=@(n) (0.732/(n*j));
+t0=-pi;
+tf=pi;
+armo=5;
+a=-pi;
+b=pi;
+f=@(t) ((1).*((t&gt;=-pi/2)&amp;(t&lt;(pi/2))));
+t=-pi:.01:pi;
+sfc(t0,tf,dn,d0,f,armo,a,b)
+figure
+plot(t,f(t))
+</pre><img vspace="5" hspace="5" src="P05_04.png" alt=""> <h2 id="7">EJERCICIO6.5</h2><h2 id="8">EJERCICIO6.7</h2><p>d0=0; dn=@(n) (1/3); t0=0; tf=3; f=@(t) (1); armo=4; a=-5; b=5;</p><pre class="codeinput"><span class="comment">%%sfc(t0,tf,dn,d0,f,armo,a,b)</span>
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2019b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% PRACTICA 5   
+%% INTEGRANTES
+% * Chavez Andrade Luis Daniel
+%% OBJETIVOS
+% *Realizar gráficas de series de Fourier exponenciales y trigonométricas en tiempo continuo
+% *Manipulación de instrucciones en MATLAB
+% *Calculo númerico de los coeficientes de Fourier
+%% ENTREGABLES
+% #Para cada problema debes de realizar
+% 
+% #Realizar el programa de la serie que se indica
+% #Gráfica de la serie de Fourier en un intervalo que muestre 5 repeticiones
+% #Gráfica de la señal y la serie de Fourier para 4 armonicos
+% #Gráfica del error
+% #Gráfica de la energía del error
+% #Espectro de magnitud para 4 armonicos
+% #Espectro de fase para 4 armonicos
+% #Todo lo anterior para 15 armonicos
+%% EJERCICIO6.1
+
+d0=0.504;
+dn=@(n) 0.504/(1+4*n*j);
+t0=0;
+tf=pi;
+f=@(t) exp(-t/2);
+armo=4;
+a=-7;
+b=7;
+
+sfc(t0,tf,dn,d0,f,armo,a,b)
+% t0 el valor inicial para calcular la serie
+% tf el valor final donde calcular la serie
+% dn función de la fórmula de los dn
+% f función original
+% armo número de armonicos a utilizar en la gráfica|
+% a, b intevalo para realizar la grafica de la serie
+%% EJERICIO 6.2
+d0=0;
+dn=@(n) 0.27/(n*j);
+t0=(-pi/2);
+tf=(pi/2);
+armo=4;
+a=-2;
+b=2;
+f=@(t) ((6*t).*((t>=-0.5)&(t<0.5)))+(6*(1-t).*((t>=0.5)&(t<1.5)));
+t=-0.5:.01:1.5;
+sfc(t0,tf,dn,d0,f,armo,a,b)
+figure
+plot(t,f(t))
+%% EJERCICIO 6.4
+d0=0;
+dn=@(n) (0.732/(n*j));
+t0=-pi;
+tf=pi;
+armo=5;
+a=-pi;
+b=pi;
+f=@(t) ((1).*((t>=-pi/2)&(t<(pi/2))));
+t=-pi:.01:pi;
+sfc(t0,tf,dn,d0,f,armo,a,b)
+figure
+plot(t,f(t))
+
+%% EJERCICIO6.5
+
+
+
+%% EJERCICIO6.7
+% d0=0;
+% dn=@(n) (1/3);
+% t0=0;
+% tf=3;
+% f=@(t) (1);
+% armo=4;
+% a=-5;
+% b=5;
+%%sfc(t0,tf,dn,d0,f,armo,a,b)
+
+##### SOURCE END #####
+--></body></html>
